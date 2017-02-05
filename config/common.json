@@ -3,7 +3,6 @@
         "packages": [
             { "id": "git-credential-manager-for-windows" }
             , { "id": "inconsolata" }
-            , { "id": "meslolg.dz" }
             , { "id": "skype" }
             , { "id": "sourcecodepro" }
             , { "id": "tomighty" }
