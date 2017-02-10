@@ -124,7 +124,7 @@ Vagrant.configure(2) do |config|
   ps_nonp config.vm, 'Add-SystemPath "%LOCALAPPDATA%\\Programs\\Microsoft Git Credential Manager for Windows"'
   ps_nonp config.vm, "Install-VisualStudioCodeExtensions #{cfg_file}"
   ps_nonp config.vm, "Connect-Vpn #{cfg_file} #{key_file} 'Soneta VPN'"
-  ps_elev config.vm, "Copy-GitRepositories #{cfg_file}"
+  ps_elev config.vm, "Copy-GitRepositories #{cfg_file} #{key_file}"
 
   config.vm.define 'vs2017', autostart: false, primary: false do | vs17 |
 
