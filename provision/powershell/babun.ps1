@@ -15,6 +15,7 @@
 # * registers mintty.exe as VPN connection trigger.
 
 $babunPath = Join-Path $env:USERPROFILE ".babun"
+$babunHome = Join-Path $babunPath "cygwin\home\vagrant"
 
 if (-Not (Test-Path ($babunPath)))
 {
@@ -35,6 +36,16 @@ if (-Not (Test-Path ($babunPath)))
         Out-File      -Encoding ascii -Force $silent
 
     Start-Process $silent -NoNewWindow -PassThru -Wait
+
+    git -C $babunHome init
+    git -C $babunHome config user.name seb\!
+    git -C $babunHome config user.email sebi@sebi.one.pl
+    git -C $babunHome remote add matrix http://192.168.99.100:8082/sebi/my-babun.git
+    git -C $babunHome fetch --all
+    git -C $babunHome checkout --force BARBAKAN-10-V
+    git -C $babunHome reset --hard HEAD
+    git -C $babunHome submodule update --init --recursive
+
     Start-Process $update -NoNewWindow -PassThru -Wait
 
     Get-VpnConnection |
