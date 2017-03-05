@@ -1,0 +1,4 @@
+[submodule "packer-windows"]
+	path = packer-windows
+	url = git@github.com:a4099181/packer-windows.git
+	branch = mine
